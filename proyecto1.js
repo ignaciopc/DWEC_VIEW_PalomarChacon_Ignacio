@@ -819,6 +819,16 @@ function pruebas() {
     console.log('Prueba - Mostrar estudiantes');
     console.log(lista.reporte());
     console.log('Estudiantes mostrados correctamente.');
+
+    // 9 Buscar estudiante
+    console.log('Prueba - Buscar estudiantes');
+    console.log(lista.buscarEstudiantePorNombre());
+    console.log('Estudiantes mostrados correctamente.');
+
+    // 10 Calcular promedio general
+    console.log('Prueba - Calcular promedio general');
+    console.log(lista.calcularPromedioClase())
+
 }
 
 pruebas();

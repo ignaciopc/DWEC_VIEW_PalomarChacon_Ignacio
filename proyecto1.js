@@ -526,9 +526,9 @@ class listaEstudiantes {
     }
 
     buscarAsignaturasPorNombre(patron) {
-        let cadena = '';
+        let cadena = 'Asignaturas : \n';
         this.#alumnos.forEach(estudiante => {
-            cadena += estudiante.buscarAsignaturaPorNombre(patron);
+            cadena += estudiante.buscarAsignaturaPorNombre(patron)+" \n";
         });
 
         return cadena;
@@ -765,15 +765,18 @@ function buscarAsignaturas() {
 
 }
 
+// Menu que sale si le das a buscar estudiante
+
 function buscarEstudiante(){
     let nombreAlumno = prompt('Dame el nombre del estudiante');
 
     console.log('Estudiantes \n'+lista.buscarEstudiantePorNombre(nombreAlumno));
 
 }
+// Escribe por pantalla cuando le das a la opcion de promedio general
 
 function promedioGeneral(){
-    console.log(lista.calcularPromedioClase())
+    console.log("Promedio de la clase "+lista.calcularPromedioClase())
 }
 
 function pruebas() {
@@ -822,7 +825,7 @@ function pruebas() {
 
     // 9 Buscar estudiante
     console.log('Prueba - Buscar estudiantes');
-    console.log(lista.buscarEstudiantePorNombre());
+    console.log(lista.buscarEstudiantePorNombre("Jua"));
     console.log('Estudiantes mostrados correctamente.');
 
     // 10 Calcular promedio general

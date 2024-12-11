@@ -536,10 +536,14 @@ class listaEstudiantes {
 
     calcularPromedioClase(){
         let media  = 0;
+        let contador =0;
         this.#alumnos.forEach(alumn => {
+            if(!isNaN(alumn.calcularPromedio())){
             media += alumn.calcularPromedio();
+            contador++;
+        }
         });
-        return (media/this.#alumnos.length).toFixed(2);
+        return (media/contador).toFixed(2);
     }
 
     toString() {
@@ -815,7 +819,13 @@ function pruebas() {
     console.log('Prueba - Mostrar estudiantes');
     console.log(lista.reporte());
     console.log('Estudiantes mostrados correctamente.');
-}
+    //9 Buscar esudiante
+    console.log('Prueba - Buscar estudiantes');
+    console.log(lista.buscarEstudiantePorNombre("Jua"))
+    // 10 Calcular promedio total
+    console.log(lista.calcularPromedioClase())
+}    
+
 
 pruebas();
 // Aqui manejo los errores enviandolos con un alert para que se vean mejor y para que el codigo no deje de funcionar

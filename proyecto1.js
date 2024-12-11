@@ -536,10 +536,14 @@ class listaEstudiantes {
 
     calcularPromedioClase(){
         let media  = 0;
+        let contador =0;
         this.#alumnos.forEach(alumn => {
+            if(!isNaN(alumn.calcularPromedio())){
             media += alumn.calcularPromedio();
+            contador++;
+        }
         });
-        return (media/this.#alumnos.length).toFixed(2);
+        return (media/contador).toFixed(2);
     }
 
     toString() {

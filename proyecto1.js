@@ -605,7 +605,7 @@ function interaccionUsuarioEstudiante() {
 
     let salida = false;
     do {
-
+        try {
         console.log('Que quieres hacer')
         console.log('1 Agregar Estudiante')
         console.log('2 Eliminar Estudiante')
@@ -654,7 +654,10 @@ function interaccionUsuarioEstudiante() {
                 salida = true;
                 break;
         }
+    } catch (error) {
+        alert(error.message)
 
+    }
     } while (!salida);
 
 };
@@ -836,11 +839,5 @@ function pruebas() {
 
 pruebas();
 // Aqui manejo los errores enviandolos con un alert para que se vean mejor y para que el codigo no deje de funcionar
-try {
     interaccionUsuarioEstudiante();
 
-} catch (error) {
-    alert(error.message)
-    interaccionUsuarioEstudiante();
-
-} 

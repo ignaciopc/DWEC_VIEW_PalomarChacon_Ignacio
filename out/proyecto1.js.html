@@ -1,4 +1,32 @@
-// Creacion de la clase direccion
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: proyecto1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: proyecto1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Creacion de la clase direccion
 
 /**
  * Me creao una clase direccion la cual va contener los siguientes atributos :
@@ -12,32 +40,13 @@
  * Tengo los getter y setter de todos los atributos ya que estan privados
  * Tengo el metodo toString para ver el contenido de la direccion 
  */
-
-/**
- * 
- */
-/**
- * Representa una dirección postal.
- * @class
- */
-class Direccion {
+class direccion {
     #calle;
     #numero;
     #piso;
     #codigoPostal;
     #provincia;
     #localidad;
-
-    /**
-     * Crea una instancia de la clase Direccion.
-     * @constructor
-     * @param {string} calle - La calle de la dirección.
-     * @param {number} numero - El número de la dirección.
-     * @param {string} piso - El piso de la dirección (si aplica).
-     * @param {string} codigoPostal - El código postal de la dirección.
-     * @param {string} provincia - La provincia de la dirección.
-     * @param {string} localidad - La localidad de la dirección.
-     */
     constructor(calle, numero, piso, codigoPostal, provincia, localidad) {
         this.#calle = calle;
         this.#numero = numero;
@@ -46,112 +55,59 @@ class Direccion {
         this.#provincia = provincia;
         this.#localidad = localidad;
     }
-
-    /**
-     * Obtiene la calle de la dirección.
-     * @returns {string} La calle de la dirección.
-     */
+    // Getters y Setters para calle
     get calle() {
         return this.#calle;
     }
-
-    /**
-     * Establece la calle de la dirección.
-     * @param {string} value - La nueva calle de la dirección.
-     */
     set calle(value) {
         this.#calle = value;
     }
 
-    /**
-     * Obtiene el número de la dirección.
-     * @returns {number} El número de la dirección.
-     */
+    // Getters y Setters para numero
     get numero() {
         return this.#numero;
     }
-
-    /**
-     * Establece el número de la dirección.
-     * @param {number} value - El nuevo número de la dirección.
-     */
     set numero(value) {
         this.#numero = value;
     }
 
-    /**
-     * Obtiene el piso de la dirección.
-     * @returns {string} El piso de la dirección.
-     */
+    // Getters y Setters para piso
     get piso() {
         return this.#piso;
     }
-
-    /**
-     * Establece el piso de la dirección.
-     * @param {string} value - El nuevo piso de la dirección.
-     */
     set piso(value) {
         this.#piso = value;
     }
 
-    /**
-     * Obtiene el código postal de la dirección.
-     * @returns {string} El código postal de la dirección.
-     */
+    // Getters y Setters para codigoPostal
     get codigoPostal() {
         return this.#codigoPostal;
     }
-
-    /**
-     * Establece el código postal de la dirección.
-     * @param {string} value - El nuevo código postal de la dirección.
-     */
     set codigoPostal(value) {
         this.#codigoPostal = value;
     }
 
-    /**
-     * Obtiene la provincia de la dirección.
-     * @returns {string} La provincia de la dirección.
-     */
+    // Getters y Setters para provincia
     get provincia() {
         return this.#provincia;
     }
-
-    /**
-     * Establece la provincia de la dirección.
-     * @param {string} value - La nueva provincia de la dirección.
-     */
     set provincia(value) {
         this.#provincia = value;
     }
 
-    /**
-     * Obtiene la localidad de la dirección.
-     * @returns {string} La localidad de la dirección.
-     */
+    // Getters y Setters para localidad
     get localidad() {
         return this.#localidad;
     }
-
-    /**
-     * Establece la localidad de la dirección.
-     * @param {string} value - La nueva localidad de la dirección.
-     */
     set localidad(value) {
         this.#localidad = value;
     }
 
-    /**
-     * Devuelve una representación en cadena de la dirección.
-     * @returns {string} La dirección completa en formato de cadena.
-     */
+
     toString() {
         return `Dirección: ${this.calle} ${this.numero}, Piso ${this.piso}, CP: ${this.codigoPostal}, ${this.localidad}, ${this.provincia}`;
     }
 }
-
 
 // Creacion de la clase nombre con un atributo nombre y con validacion para la implementacion de herencia ya que en la clase asignatura y estudiante se usa el mismo tipo de validacion
 // Constructor que valida que el nombre solo contenga letras y espacios.
@@ -227,7 +183,7 @@ class Asignatura extends nombre {
     // Valida que la calificación 
 
     aniadirCalifiaciones(nota) {
-        if (typeof nota === "number" && nota != null) {
+        if (typeof nota === "number" &amp;&amp; nota != null) {
             this.#calificaciones.push(nota);
         } else {
             throw new Error("La nota debe de ser un numero y debe estar entre 0 y 10");
@@ -432,7 +388,7 @@ class estudiante extends nombre {
     }
 
     aniadirCalificaciones(nombre, nota) {
-        if (typeof nota == 'number' || nota >= 0 || nota <= 10) {
+        if (typeof nota == 'number' || nota >= 0 || nota &lt;= 10) {
 
             this.#listaModulos.lista.forEach(asignatu => {
                 if (asignatu.nombre == nombre) {
@@ -778,9 +734,9 @@ function matricularEstudiante() {
     let asignatura1 = new Asignatura();
 
     // Pedir las calificaciones
-    for (let i = 0; i < cantidad_calificaciones; i++) {
+    for (let i = 0; i &lt; cantidad_calificaciones; i++) {
         let calificacion = parseInt(prompt(`Ingresa la calificación ${i + 1}: `));
-        if (calificacion > 10 || calificacion < 0) {
+        if (calificacion > 10 || calificacion &lt; 0) {
             throw new Error("El numero debe de estar entre 0 y 10");
         }
         if (i == 0) {
@@ -913,3 +869,26 @@ pruebas();
 // Aqui manejo los errores enviandolos con un alert para que se vean mejor y para que el codigo no deje de funcionar
     interaccionUsuarioEstudiante();
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Asignatura.html">Asignatura</a></li><li><a href="direccion.html">direccion</a></li><li><a href="estudiante.html">estudiante</a></li><li><a href="listaAsignaturas.html">listaAsignaturas</a></li><li><a href="listaEstudiantes.html">listaEstudiantes</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Jan 21 2025 14:19:49 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

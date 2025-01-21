@@ -1,0 +1,14 @@
+{
+  "name": "dwec_view_palomarchacon_ignacio",
+  "version": "1.0.0",
+  "description": "proyecto gestoria de alumnos",
+  "main": "proyecto1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ignacio palomar chacon",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^4.0.4"
+  }
+}

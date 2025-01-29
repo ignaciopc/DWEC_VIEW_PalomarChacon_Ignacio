@@ -28,9 +28,20 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>listaAsignaturas<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>listaAsignaturas<span class="signature">(&hellip;lista)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">La clase lista asignatura contendra un array con cada asignatura que tenga el estudiante Atributos : Un array con las asignaturasMetodos : Getter y Setter del atributo asignaturaeliminarAsignatura : luego de comprobar que se le ha pasado un string y no otra cosa se eliminan las asignaturas que tengan ese nombreagregarAsignatura : Se comprueba que sea de clase asignatura y luego se comprueba si esa asignatura no esta en mi lista, si no esta se añadetoString : para ver que valores tienen los atributos</div>
+            <div class="class-description"><h2>Clase listaAsignaturas</h2>
+<p>Representa una colección de asignaturas asociadas a un estudiante.</p>
+<h3>Atributos:</h3>
+<ul>
+<li><code>#lista</code>: Un array que contiene objetos de tipo <code>Asignatura</code>.</li>
+</ul>
+<h3>Métodos:</h3>
+<ul>
+<li><strong><code>eliminarAsignatura</code></strong>: Elimina una asignatura de la lista según su nombre.</li>
+<li><strong><code>agregarAsignatura</code></strong>: Añade una nueva asignatura a la lista si no está presente.</li>
+<li><strong><code>toString</code></strong>: Devuelve una representación en cadena de todas las asignaturas en la lista.</li>
+</ul></div>
         
     
 </header>
@@ -45,19 +56,85 @@
     
 
     
-    <h4 class="name" id="listaAsignaturas"><span class="type-signature"></span>new listaAsignaturas<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="listaAsignaturas"><span class="type-signature"></span>new listaAsignaturas<span class="signature">(&hellip;lista)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
+<div class="description">
+    <h3>Constructor</h3>
+<p>Crea una instancia de la clase <code>listaAsignaturas</code> inicializando la lista de asignaturas.</p>
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lista</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Asignatura.html">Asignatura</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Las asignaturas iniciales de la lista.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -93,7 +170,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="proyecto1.js.html">proyecto1.js</a>, <a href="proyecto1.js.html#line190">line 190</a>
+        <a href="proyecto1.js.html">proyecto1.js</a>, <a href="proyecto1.js.html#line280">line 280</a>
     </li></ul></dd>
     
 
@@ -141,6 +218,488 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="agregarAsignatura"><span class="type-signature"></span>agregarAsignatura<span class="signature">(asignature)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Añade una asignatura a la lista.</p>
+<p><strong>Validación:</strong></p>
+<ul>
+<li>El parámetro debe ser un objeto de la clase <code>Asignatura</code>.</li>
+<li>No se permite duplicar asignaturas con el mismo nombre.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>asignature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Asignatura.html">Asignatura</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>La asignatura a añadir.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="proyecto1.js.html">proyecto1.js</a>, <a href="proyecto1.js.html#line326">line 326</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>Si el parámetro no es un objeto de la clase <code>Asignatura</code>.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>Si la asignatura ya está en la lista.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="eliminarAsignatura"><span class="type-signature"></span>eliminarAsignatura<span class="signature">(nombre)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Elimina una asignatura de la lista según su nombre.</p>
+<p><strong>Validación:</strong></p>
+<ul>
+<li>El parámetro debe ser una cadena de texto.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nombre</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>El nombre de la asignatura a eliminar.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="proyecto1.js.html">proyecto1.js</a>, <a href="proyecto1.js.html#line306">line 306</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>Si el parámetro no es una cadena de texto.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Devuelve una representación en cadena de todas las asignaturas en la lista.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="proyecto1.js.html">proyecto1.js</a>, <a href="proyecto1.js.html#line345">line 345</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Una cadena con los datos de todas las asignaturas.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
 
     
 
@@ -155,13 +714,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Asignatura.html">Asignatura</a></li><li><a href="direccion.html">direccion</a></li><li><a href="estudiante.html">estudiante</a></li><li><a href="listaAsignaturas.html">listaAsignaturas</a></li><li><a href="listaEstudiantes.html">listaEstudiantes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Asignatura.html">Asignatura</a></li><li><a href="Direccion.html">Direccion</a></li><li><a href="estudiante.html">estudiante</a></li><li><a href="listaAsignaturas.html">listaAsignaturas</a></li><li><a href="listaEstudiantes.html">listaEstudiantes</a></li><li><a href="nombre.html">nombre</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Jan 21 2025 14:19:49 GMT+0100 (hora estándar de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Jan 22 2025 10:46:49 GMT+0100 (hora estándar de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -17,8 +17,10 @@
  * 
  */
 /**
+ * ## Clase Direccion
+ * 
  * Representa una dirección postal.
- * @class
+ * 
  */
 class Direccion {
     #calle;
@@ -29,7 +31,10 @@ class Direccion {
     #localidad;
 
     /**
-     * Crea una instancia de la clase Direccion.
+     * ### Constructor
+     * 
+     * Crea una instancia de la clase `Direccion`.
+     * 
      * @constructor
      * @param {string} calle - La calle de la dirección.
      * @param {number} numero - El número de la dirección.
@@ -37,6 +42,7 @@ class Direccion {
      * @param {string} codigoPostal - El código postal de la dirección.
      * @param {string} provincia - La provincia de la dirección.
      * @param {string} localidad - La localidad de la dirección.
+     * 
      */
     constructor(calle, numero, piso, codigoPostal, provincia, localidad) {
         this.#calle = calle;
@@ -47,105 +53,72 @@ class Direccion {
         this.#localidad = localidad;
     }
 
-    /**
-     * Obtiene la calle de la dirección.
-     * @returns {string} La calle de la dirección.
-     */
+   
     get calle() {
         return this.#calle;
     }
 
-    /**
-     * Establece la calle de la dirección.
-     * @param {string} value - La nueva calle de la dirección.
-     */
+   
     set calle(value) {
         this.#calle = value;
     }
 
-    /**
-     * Obtiene el número de la dirección.
-     * @returns {number} El número de la dirección.
-     */
+  
     get numero() {
         return this.#numero;
     }
 
-    /**
-     * Establece el número de la dirección.
-     * @param {number} value - El nuevo número de la dirección.
-     */
+   
     set numero(value) {
         this.#numero = value;
     }
 
-    /**
-     * Obtiene el piso de la dirección.
-     * @returns {string} El piso de la dirección.
-     */
+    
     get piso() {
         return this.#piso;
     }
 
-    /**
-     * Establece el piso de la dirección.
-     * @param {string} value - El nuevo piso de la dirección.
-     */
     set piso(value) {
         this.#piso = value;
     }
 
-    /**
-     * Obtiene el código postal de la dirección.
-     * @returns {string} El código postal de la dirección.
-     */
+   
     get codigoPostal() {
         return this.#codigoPostal;
     }
 
-    /**
-     * Establece el código postal de la dirección.
-     * @param {string} value - El nuevo código postal de la dirección.
-     */
     set codigoPostal(value) {
         this.#codigoPostal = value;
     }
 
-    /**
-     * Obtiene la provincia de la dirección.
-     * @returns {string} La provincia de la dirección.
-     */
+   
     get provincia() {
         return this.#provincia;
     }
 
-    /**
-     * Establece la provincia de la dirección.
-     * @param {string} value - La nueva provincia de la dirección.
-     */
+   
     set provincia(value) {
         this.#provincia = value;
     }
 
-    /**
-     * Obtiene la localidad de la dirección.
-     * @returns {string} La localidad de la dirección.
-     */
+    
     get localidad() {
         return this.#localidad;
     }
 
-    /**
-     * Establece la localidad de la dirección.
-     * @param {string} value - La nueva localidad de la dirección.
-     */
+   
     set localidad(value) {
         this.#localidad = value;
     }
 
     /**
      * Devuelve una representación en cadena de la dirección.
+     * 
+     * **Formato de salida:**
+     * `Dirección: {calle} {numero}, Piso {piso}, CP: {codigoPostal}, {localidad}, {provincia}`
+     * 
      * @returns {string} La dirección completa en formato de cadena.
+     * 
      */
     toString() {
         return `Dirección: ${this.calle} ${this.numero}, Piso ${this.piso}, CP: ${this.codigoPostal}, ${this.localidad}, ${this.provincia}`;
@@ -153,11 +126,33 @@ class Direccion {
 }
 
 
-// Creacion de la clase nombre con un atributo nombre y con validacion para la implementacion de herencia ya que en la clase asignatura y estudiante se usa el mismo tipo de validacion
-// Constructor que valida que el nombre solo contenga letras y espacios.
-// Si el nombre no es válido, lanza un error.
+/**
+ * ## Clase Nombre
+ * 
+ * Representa un nombre con validación personalizada. Diseñada para su reutilización en herencia, como en clases `Asignatura` y `Estudiante`.
+ * 
+ * ### Validación:
+ * - El nombre debe contener solo **letras** y **espacios**.
+ * - Si el nombre no cumple con la validación, se lanza un error.
+ * 
+ * ### Uso en herencia:
+ * Esta clase puede ser extendida para compartir la lógica de validación de nombres en otras entidades que necesiten atributos similares.
+ * 
+ * ```
+ */
 class nombre {
     #nombre;
+
+    /**
+     * ### Constructor
+     * 
+     * Crea una instancia de la clase `nombre` con validación.
+     * 
+     * @param {string} nombre - El nombre a validar y asignar.
+     * 
+     * **Nota:** Si el nombre no cumple con la validación (letras y espacios), se lanza un error.
+     * 
+     */
     constructor(nombre) {
         const regex = /^[A-Za-z\s]+$/;
 
@@ -167,171 +162,219 @@ class nombre {
         this.#nombre = nombre;
     }
 
-    get nombre() {
-        return this.#nombre;
-    }
-
-    set nombre(value) {
-        const regex = /^[A-Za-z\s]+$/;
-        if (!regex.test(value)) {
-            throw new Error("El nombre debe contener solo letras, números romanos y espacios.");
-        }
-        this.#nombre = value;
-    }
-
+    /**
+     * Devuelve una representación en cadena del nombre.
+     * @returns {string} El nombre como una cadena de texto.
+     */
     toString() {
         return this.#nombre;
     }
 }
 
-// Creacion de la clase asignatura
+
 /**
- *  Atributos : Tiene un array lleno de calificaciones(notas de cada asignatura) y tiene el atributo del padre que es nombre
- * Metodos :
- * Promedio : se calcula la nota media que ha sacado en esta asignatura
- * AniadirCalificaciones : Luego de hacer una comprobacion de que sea un número y esté dentro del rango 0-10.
- *  Si no ha salido ningun tipo de error se le añadira una calaficacion o nota a la asignatura
- * toString : Sirve para ver que datos tiene la clase asignatura
+ * ## Clase Asignatura
+ * 
+ * Representa una asignatura que hereda de la clase `nombre`.
+ * 
+ * ### Atributos:
+ * - `#calificaciones`: Un array de calificaciones (notas) asociadas a la asignatura.
+ * - Hereda el atributo `#nombre` de la clase padre.
+ * 
+ * ### Métodos:
+ * - **`promedio`**: Calcula la nota media de la asignatura.
+ * - **`aniadirCalificaciones`**: Añade una calificación tras validar que es un número en el rango de 0 a 10.
+ * - **`toString`**: Devuelve una representación en cadena de los datos de la asignatura.
  * 
  */
 class Asignatura extends nombre {
     #calificaciones = [];
 
+    /**
+     * ### Constructor
+     * 
+     * Crea una instancia de la clase `Asignatura` inicializando su nombre y las calificaciones.
+     * 
+     * @param {string} nombre - El nombre de la asignatura (heredado de la clase `nombre`).
+     * @param {...number} calificaciones - Las calificaciones iniciales de la asignatura.
+     * 
+     */
     constructor(nombre, ...calificaciones) {
-        super(nombre)
-
+        super(nombre);
         this.#calificaciones = calificaciones; // Inicializar array de calificaciones
     }
 
-    // Getters y Setters para acceder y modificar los atributos privados
-
-
-    get calificaciones() {
-        return this.#calificaciones;
-    }
-
-    set calificaciones(value) {
-        this.#calificaciones = value;
-    }
-    // Calcula el promedio de todas las calificaciones de la asignatura.
-    // Itera sobre todas las calificaciones y calcula la media.
+    /**
+     * Calcula el promedio de todas las calificaciones de la asignatura.
+     * 
+     * 
+     * @returns {number} El promedio de las calificaciones.
+     * 
+     * @throws {Error} Si no hay calificaciones registradas.
+     */
     promedio() {
-        let media = 0;
+        if (this.#calificaciones.length === 0) {
+            throw new Error("No hay calificaciones para calcular el promedio.");
+        }
 
+        let suma = 0;
         this.#calificaciones.forEach(element => {
-            media += element;
+            suma += element;
         });
-        return media / this.#calificaciones.length;
+        return suma / this.#calificaciones.length;
     }
-    // Añade una calificación a la lista de calificaciones de la asignatura.
-    // Valida que la calificación 
 
+    /**
+     * Añade una calificación a la lista de calificaciones de la asignatura.
+     * 
+     * **Validación:**
+     * - La calificación debe ser un número entre 0 y 10.
+     * 
+     * 
+     * @param {number} nota - La calificación a añadir.
+     * 
+     * @throws {Error} Si la calificación no es válida.
+     */
     aniadirCalifiaciones(nota) {
-        if (typeof nota === "number" && nota != null) {
+        if (typeof nota === "number" && nota >= 0 && nota <= 10) {
             this.#calificaciones.push(nota);
         } else {
-            throw new Error("La nota debe de ser un numero y debe estar entre 0 y 10");
-
+            throw new Error("La nota debe ser un número y debe estar entre 0 y 10.");
         }
     }
 
-
-
+    /**
+     * Devuelve una representación en cadena de los datos de la asignatura.
+     * 
+     * **Formato de salida:**
+     * `{nombre} {calificaciones}`
+     * 
+     * 
+     * @returns {string} Una cadena con el nombre de la asignatura y sus calificaciones.
+     */
     toString() {
-        let cadena = '';
-
-        cadena += super.nombre + ' ';
+        let cadena = `${super.nombre} `;
 
         this.#calificaciones.forEach(element => {
-            cadena += element + ' ';
+            cadena += `${element} `;
         });
-        return cadena
+        return cadena.trim(); // Elimina espacios extra al final.
     }
 }
 
-// Creacion de la clase asignaturas
+
 /**
- * La clase lista asignatura contendra un array con cada asignatura que tenga el estudiante 
- * Atributos : Un array con las asignaturas
- * Metodos : 
- * Getter y Setter del atributo asignatura
- * eliminarAsignatura : luego de comprobar que se le ha pasado un string y no otra cosa se eliminan las asignaturas que tengan ese nombre
- * agregarAsignatura : Se comprueba que sea de clase asignatura y luego se comprueba si esa asignatura no esta en mi lista, si no esta se añade
- * toString : para ver que valores tienen los atributos
+ * ## Clase listaAsignaturas
+ * 
+ * Representa una colección de asignaturas asociadas a un estudiante.
+ * 
+ * ### Atributos:
+ * - `#lista`: Un array que contiene objetos de tipo `Asignatura`.
+ * 
+ * ### Métodos:
+ * - **`eliminarAsignatura`**: Elimina una asignatura de la lista según su nombre.
+ * - **`agregarAsignatura`**: Añade una nueva asignatura a la lista si no está presente.
+ * - **`toString`**: Devuelve una representación en cadena de todas las asignaturas en la lista.
+ * 
  */
 class listaAsignaturas {
-
     #lista = [];
+
+    /**
+     * ### Constructor
+     * 
+     * Crea una instancia de la clase `listaAsignaturas` inicializando la lista de asignaturas.
+     * 
+     * @param {...Asignatura} lista - Las asignaturas iniciales de la lista.
+     * 
+     */
     constructor(...lista) {
         this.#lista = lista;
     }
 
-    // Getter para lista
-    get lista() {
-        return this.#lista;
-    }
-
-    // Setter para lista
-    set lista(value) {
-        if (!Array.isArray(value)) {
-            throw new Error("El valor asignado a lista debe ser un array.");
-        }
-        this.#lista = value;
-    }
-
+    /**
+     * Elimina una asignatura de la lista según su nombre.
+     * 
+     * **Validación:**
+     * - El parámetro debe ser una cadena de texto.
+     * 
+     * 
+     * @param {string} nombre - El nombre de la asignatura a eliminar.
+     * 
+     * @throws {Error} Si el parámetro no es una cadena de texto.
+     */
     eliminarAsignatura(nombre) {
-        if (typeof nombre != "string") {
-            throw new Error("Error se debe de pasar una cadena de texto con el nombre de la asignatura");
+        if (typeof nombre !== "string") {
+            throw new Error("Error: Se debe pasar una cadena de texto con el nombre de la asignatura.");
         }
 
         this.#lista = this.#lista.filter(element => element.nombre !== nombre);
     }
 
+    /**
+     * Añade una asignatura a la lista.
+     * 
+     * **Validación:**
+     * - El parámetro debe ser un objeto de la clase `Asignatura`.
+     * - No se permite duplicar asignaturas con el mismo nombre.
+     * 
+     * @param {Asignatura} asignature - La asignatura a añadir.
+     * 
+     * @throws {Error} Si el parámetro no es un objeto de la clase `Asignatura`.
+     * @throws {Error} Si la asignatura ya está en la lista.
+     */
     agregarAsignatura(asignature) {
-        //COMPROBAR SI ES UN OBJETO DE TIPO ASIGNATURA
-
         if (!(asignature instanceof Asignatura)) {
-            throw new Error("Error se debe de pasar un objeto de tipo Asignatura");
+            throw new Error("Error: Se debe pasar un objeto de tipo Asignatura.");
         }
-        //Compruebo que no esté en mi array de asignaturas
+
         const existe = this.#lista.some(asignatura => asignatura.nombre === asignature.nombre);
         if (existe) {
             throw new Error(`Error: La asignatura "${asignature.nombre}" ya está en la lista.`);
         }
 
-        // Añado al array si no ha habido ningún error
         this.#lista.push(asignature);
     }
 
+    /**
+     * Devuelve una representación en cadena de todas las asignaturas en la lista.
+     * 
+     * 
+     * @returns {string} Una cadena con los datos de todas las asignaturas.
+     */
     toString() {
-        let cadena = ''
+        let cadena = '';
         this.#lista.forEach(element => {
             cadena += element.toString();
         });
 
-        return cadena
+        return cadena;
     }
 }
 
-// Creacion de la clase estudiante
 
 /**
- * La clase estudiante son los datos de un estudiante
- * Atributos :
- *  id : Es un identificador único para cada estudiante. Este atributo se asigna automáticamente utilizando un contador estático
- * edad: Representa la edad del estudiante. Es un número entero que indica cuántos años tiene el estudiante.
- * direccion : Contiene la dirección del estudiante, que es una instancia de la clase direccion
- *  listaModulos :Es una lista de las asignaturas en las que el estudiante está matriculado. Se gestiona como una instancia de la clase listaAsignaturas
- * fechaDeMatriculacion :Almacena la fecha en la que el estudiante fue matriculado en la lista de estudiantes
- * fechaDeDesmatriculacion : Almacena la fecha en la que el estudiante fue eliminado o desmatriculado de la lista de estudiantes.
+ * ## Clase Estudiante
  * 
- * Metodos :
- * getter y setter para cada uno de los atributos
- * matricula asignatura : // Llama a la función agregarAsignatura de la clase listaAsignaturas.
- * calcularPromedio : // Se utiliza el promedio de cada asignatura para obtener la media general.
- * aniadirCalificaciones : Luego de hacer unas comprobaciones si no salta ningun tipo de error se añadira una califiacion a la asignatura que le has pasado 
- * buscarAsignaturaPorNombre : Se buscan todas las asignaturas que cotienen el nombre que se le ha pasado
- * toString : para ver los datos del estudiante
+ * Representa los datos y funcionalidades relacionadas con un estudiante.
+ * 
+ * ### Atributos:
+ * - **`#id`**: Identificador único para cada estudiante. Asignado automáticamente mediante un contador estático.
+ * - **`#edad`**: Edad del estudiante (número entero).
+ * - **`#direccion`**: Dirección del estudiante, instancia de la clase `Direccion`.
+ * - **`#listaModulos`**: Lista de asignaturas en las que el estudiante está matriculado, gestionada como una instancia de `listaAsignaturas`.
+ * - **`#fechaDeMatriculacion`**: Fecha en la que el estudiante fue matriculado.
+ * - **`#fechaDeDesmatriculacion`**: Fecha en la que el estudiante fue desmatriculado.
+ * - **`contadorID`** (estático): Contador que garantiza la asignación única de IDs.
+ * 
+ * ### Métodos:
+ * - **Getters y Setters**: Para gestionar los atributos privados.
+ * - **`matricularAsignatura`**: Matricula al estudiante en una nueva asignatura.
+ * - **`desmatricularAsignatura`**: Elimina una asignatura de la lista del estudiante según su nombre.
+ * - **`calcularPromedio`**: Calcula el promedio general de todas las asignaturas del estudiante.
+ * - **`aniadirCalificaciones`**: Añade una calificación a una asignatura específica.
+ * - **`buscarAsignaturaPorNombre`**: Busca asignaturas cuyo nombre contenga un patrón dado.
+ * - **`toString`**: Devuelve una representación en cadena con los datos principales del estudiante.
  */
 class estudiante extends nombre {
     #id;
@@ -342,210 +385,279 @@ class estudiante extends nombre {
     #fechaDeDesmatriculacion;
     static contadorID = 1;
 
-
+    /**
+     * ### Constructor
+     * 
+     * Crea una nueva instancia de la clase `estudiante`.
+     * 
+     * @param {string} nombre - Nombre del estudiante.
+     * @param {number} edad - Edad del estudiante.
+     * @param {Direccion} direccion - Instancia de la clase `Direccion` que representa la dirección del estudiante.
+     * @param {Object} [listaModulos={}] - Lista inicial de módulos (opcional).
+     */
     constructor(nombre, edad, direccion, listaModulos = {}) {
-        super(nombre)
+        super(nombre);
 
-
-        this.#id = estudiante.contadorID++;  // Asigna el id y luego incrementa el contador
+        this.#id = estudiante.contadorID++; // Asigna el ID único y lo incrementa.
         this.#edad = edad;
         this.#direccion = direccion;
         this.#listaModulos = new listaAsignaturas();
-        this.#fechaDeMatriculacion = null;  // No esta matriculado hasta que se aniada a la lista de       estudiantes
-        this.#fechaDeDesmatriculacion = null; // Al inicio no está desmatriculado
-
-
+        this.#fechaDeMatriculacion = null; // Inicialmente no matriculado.
+        this.#fechaDeDesmatriculacion = null; // Inicialmente no desmatriculado.
     }
-    // Getter y Setter para id
+
+    /** @returns {number} ID único del estudiante. */
     get id() {
         return this.#id;
     }
 
+    /** @param {number} value - Nuevo ID del estudiante. */
     set id(value) {
         this.#id = value;
     }
 
-    // Getter y Setter para nombre
-
-
-    // Getter y Setter para edad
+    /** @returns {number} Edad del estudiante. */
     get edad() {
         return this.#edad;
     }
 
+    /** @param {number} value - Nueva edad del estudiante. */
     set edad(value) {
         this.#edad = value;
     }
 
-    // Getter y Setter para direccion
+    /** @returns {Direccion} Dirección del estudiante. */
     get direccion() {
         return this.#direccion;
     }
 
+    /** @param {Direccion} value - Nueva dirección del estudiante. */
     set direccion(value) {
         this.#direccion = value;
     }
 
-    // Getter y Setter para listaModulos
+    /** @returns {listaAsignaturas} Lista de asignaturas del estudiante. */
     get listaModulos() {
         return this.#listaModulos;
     }
 
+    /** @param {listaAsignaturas} value - Nueva lista de asignaturas. */
     set listaModulos(value) {
         this.#listaModulos = value;
     }
+
+    /** @returns {Date|null} Fecha de matriculación del estudiante. */
     get fechaDeMatriculacion() {
         return this.#fechaDeMatriculacion;
     }
 
-    // Setter para fechaDeMatriculacion
+    /** @param {Date} value - Nueva fecha de matriculación. */
     set fechaDeMatriculacion(value) {
         this.#fechaDeMatriculacion = value;
     }
 
+    /** @returns {Date|null} Fecha de desmatriculación del estudiante. */
     get fechaDeDesmatriculacion() {
         return this.#fechaDeDesmatriculacion;
     }
 
-    // Setter para fechaDeDesmatriculacion
+    /** @param {Date} value - Nueva fecha de desmatriculación. */
     set fechaDeDesmatriculacion(value) {
         this.#fechaDeDesmatriculacion = value;
     }
 
+    /**
+     * Matricula al estudiante en una nueva asignatura.
+     * 
+     * @param {Asignatura} Asignatura - La asignatura en la que se matriculará el estudiante.
+     */
     matricularAsignatura(Asignatura) {
         this.#listaModulos.agregarAsignatura(Asignatura);
     }
 
+    /**
+     * Desmatricula al estudiante de una asignatura.
+     * 
+     * @param {string} nombre - Nombre de la asignatura que se desea eliminar.
+     */
     desmatricularAsignatura(nombre) {
         this.#listaModulos.eliminarAsignatura(nombre);
     }
 
-
+    /**
+     * Calcula el promedio general de todas las asignaturas del estudiante.
+     * 
+     * @returns {number} Promedio general redondeado a dos decimales.
+     */
     calcularPromedio() {
         let mediaTotal = 0;
         this.#listaModulos.lista.forEach(element => {
             mediaTotal += parseFloat(element.promedio().toFixed(2));
         });
 
-        return mediaTotal = mediaTotal / this.#listaModulos.lista.length;
-
+        return mediaTotal / this.#listaModulos.lista.length;
     }
 
+    /**
+     * Añade una calificación a una asignatura específica.
+     * 
+     * @param {string} nombre - Nombre de la asignatura.
+     * @param {number} nota - Calificación a añadir (debe estar entre 0 y 10).
+     * 
+     * @throws {Error} Si la nota no es válida.
+     */
     aniadirCalificaciones(nombre, nota) {
-        if (typeof nota == 'number' || nota >= 0 || nota <= 10) {
-
-            this.#listaModulos.lista.forEach(asignatu => {
-                if (asignatu.nombre == nombre) {
-                    asignatu.aniadirCalifiaciones(nota);
+        if (typeof nota === 'number' && nota >= 0 && nota <= 10) {
+            this.#listaModulos.lista.forEach(asignatura => {
+                if (asignatura.nombre === nombre) {
+                    asignatura.aniadirCalifiaciones(nota);
                 }
             });
         } else {
-            throw new Error("La nota debe de ser tipo numero y ser mayor o igual que 0 y menor o igual que 10");
-
+            throw new Error("La nota debe ser un número entre 0 y 10.");
         }
-
     }
 
+    /**
+     * Busca asignaturas cuyo nombre contenga un patrón específico.
+     * 
+     * @param {string} patron - Patrón de búsqueda.
+     * 
+     * @returns {string} Lista de nombres de asignaturas que coinciden con el patrón.
+     * 
+     * @throws {Error} Si el patrón no es una cadena.
+     */
     buscarAsignaturaPorNombre(patron) {
-        // Validar que el patrón sea una cadena
         if (typeof patron !== "string") {
-            throw new Error("El patrón debe ser una cadena de texto");
+            throw new Error("El patrón debe ser una cadena de texto.");
         }
 
-        // Crear una expresión regular para realizar la búsqueda, haciendo la búsqueda insensible a mayúsculas/minúsculas
         const regex = new RegExp(patron, "i");
 
-        // Filtrar las asignaturas que contienen el patrón
-        let l = this.#listaModulos.lista.filter(asignatura => regex.test(asignatura.nombre));
-
-        let asignaturas = '';
-        l.forEach(element => {
-            asignaturas += element.nombre + '\n';  // Asegúrate de usar '\n' para separar cada asignatura
-        });
-        return asignaturas;  // Aquí deberías devolver un string con los nombres concatenados de las asignaturas
+        return this.#listaModulos.lista
+            .filter(asignatura => regex.test(asignatura.nombre))
+            .map(asignatura => asignatura.nombre)
+            .join('\n');
     }
 
-
+    /**
+     * Devuelve una representación en cadena de los datos principales del estudiante.
+     * 
+     * @returns {string} Información del estudiante.
+     */
     toString() {
         return `ID: ${this.#id}, Nombre: ${super.nombre}, Edad: ${this.#edad}, Dirección: ${this.#direccion.toString()}`;
     }
-
 }
 
 
-/**
- * Creacion de la clase lista Estudiantes
- * Es una clase que contendra distintos tipos de alumnos de la clase alumnos
- * Atributos :
- * alumnos : Es una array que contiene a diferentes alumnos
- * Metodos : 
- * getter y setter de alumnos
- * agregarAlumnos : Luego de comprobar que no esta ya en la lista se añade un alumno
- * eliminarAlumno : Elimino el alumno que me han pasado
- * desmatricularaAsignatura : Se busca al estudiante con el mismo id del estudiante al que quieres quitarle una asignatura y cuando lo encuentra le desmatricula de esa asignatura
- * matricularAsignatura : Busca a la persona y si la encuentra la matricula de esa una asignatura
- * reporte : Muestra los datos de los alumnos poniendo su nombre, id luego las asignaturas que tiene con con sus notas y su media
- * buscarEstudiantePorNombre : Busca los estudiantes que coincidan con el nombre que le hayan pasado
- * aniadirCalifiacion:  Le añade una calificacion o nota a un estudiante en una asignatura
- * calcularPromedioAlumnoExacto : calcula el promedio de  todas las asignatura
- * buscarAsignaturasPorNombre : busca las asignaturas que coincidan con el nombre que se le ha pasado
- * toString : para ver los datos de todos lo estudiantes que hay en la lista
- * 
- */
 
+/**
+ * ## Clase ListaEstudiantes
+ * 
+ * Esta clase gestiona una lista de estudiantes (instancias de la clase `estudiante`).
+ * Permite agregar, eliminar y matricular o desmatricular estudiantes en asignaturas, así como generar reportes y realizar otras operaciones relacionadas con los estudiantes.
+ * 
+ * ### Atributos:
+ * - **`#alumnos`**: Un array que contiene las instancias de estudiantes (`estudiante`).
+ * 
+ * ### Métodos:
+ * - **Getters y Setters**: Para gestionar el atributo `#alumnos`.
+ * - **`agregarAlumnos`**: Añade un alumno a la lista, asegurándose de que no se repita.
+ * - **`eliminarAlumnos`**: Elimina un alumno de la lista por nombre y registra la fecha de desmatriculación.
+ * - **`desmatricularaAsignatura`**: Desmatricula a un estudiante de una asignatura específica.
+ * - **`matricularAsignatura`**: Matricula a un estudiante en una asignatura específica.
+ * - **`reporte`**: Genera un reporte de los estudiantes, mostrando su nombre, ID y las asignaturas con sus notas y promedio.
+ * - **`buscarEstudiantePorNombre`**: Busca estudiantes que coincidan con el patrón de nombre proporcionado.
+ * - **`aniadirCalifiacion`**: Añade una calificación a un estudiante en una asignatura específica.
+ * - **`calcularPromedioAlumnoExacto`**: Calcula el promedio exacto de un estudiante en todas sus asignaturas.
+ * - **`buscarAsignaturasPorNombre`**: Busca asignaturas que contengan el patrón de nombre proporcionado.
+ * - **`calcularPromedioClase`**: Calcula el promedio de la clase (promedio de todos los estudiantes).
+ * - **`toString`**: Muestra los datos de todos los estudiantes en la lista.
+ */
 class listaEstudiantes {
-    #alumnos
+    #alumnos;
+
+    /**
+     * ### Constructor
+     * 
+     * Crea una nueva instancia de la clase `listaEstudiantes` inicializando el atributo `#alumnos` como un array vacío.
+     */
     constructor() {
         this.#alumnos = [];
     }
 
+    /** @returns {Array} Lista de alumnos. */
     get alumnos() {
         return this.#alumnos;
     }
 
+    /**
+     * Añade un nuevo alumno a la lista de estudiantes si no existe en la lista.
+     * 
+     * @param {estudiante} alumno - Instancia de la clase `estudiante` que será añadida a la lista.
+     * 
+     * @throws {Error} Si el alumno ya está en la lista.
+     */
     agregarAlumnos(alumno) {
         this.#alumnos.forEach(alumn => {
-            if (alumn.id == alumno.id) {
-                throw new Error("El aumno que intentas meter ya esta en la lista");
+            if (alumn.id === alumno.id) {
+                throw new Error("El alumno que intentas meter ya está en la lista");
             }
         });
         this.#alumnos.push(alumno);
         let hoy = new Date();
         alumno.fechaDeMatriculacion = hoy.toLocaleDateString("es-ES");
-
     }
 
+    /**
+     * Elimina un alumno de la lista por nombre y registra la fecha de desmatriculación.
+     * 
+     * @param {string} nombre - Nombre del alumno a eliminar.
+     */
     eliminarAlumnos(nombre) {
-
         this.#alumnos.forEach(alumn => {
-            if (alumn.nombre == nombre) {
+            if (alumn.nombre === nombre) {
                 let hoy = new Date();
                 alumn.fechaDeDesmatriculacion = hoy.toLocaleDateString("es-ES");
-
             }
-
         });
-
         this.#alumnos = this.#alumnos.filter(element => element.nombre !== nombre);
-
     }
 
+    /**
+     * Desmatricula a un alumno de una asignatura específica.
+     * 
+     * @param {number} id - ID del estudiante.
+     * @param {string} nombre - Nombre de la asignatura.
+     */
     desmatricularaAsignatura(id, nombre) {
         this.#alumnos.forEach(alum => {
-            if (alum.id == id) {
+            if (alum.id === id) {
                 alum.desmatricularAsignatura(nombre);
             }
         });
     }
 
+    /**
+     * Matricula a un alumno en una asignatura específica.
+     * 
+     * @param {number} id - ID del estudiante.
+     * @param {string} nombre - Nombre de la asignatura.
+     */
     matricularAsignatura(id, nombre) {
         this.#alumnos.forEach(alum => {
-            if (alum.id == id) {
+            if (alum.id === id) {
                 alum.matricularAsignatura(nombre);
             }
         });
     }
 
+    /**
+     * Genera un reporte con los datos de los estudiantes, incluyendo las asignaturas, calificaciones y promedios.
+     * 
+     * @returns {string} Reporte con la información de los estudiantes.
+     */
     reporte() {
         let cadena = '';
         this.#alumnos.forEach(estudiante => {
@@ -556,38 +668,54 @@ class listaEstudiantes {
             });
             cadena += '\n';
         });
-
         return cadena;
     }
 
+    /**
+     * Busca los estudiantes cuyo nombre coincida con el patrón proporcionado.
+     * 
+     * @param {string} patron - Patrón de búsqueda para el nombre del estudiante.
+     * 
+     * @returns {string} Lista de estudiantes cuyo nombre coincide con el patrón.
+     * 
+     * @throws {Error} Si el patrón no es una cadena.
+     */
     buscarEstudiantePorNombre(patron) {
-        // Validar que el patrón sea una cadena
         if (typeof patron !== "string") {
             throw new Error("El patrón debe ser una cadena de texto");
         }
 
-        // Crear una expresión regular para realizar la búsqueda, haciendo la búsqueda insensible a mayúsculas/minúsculas
         const regex = new RegExp(patron.toLowerCase(), "i");
 
-        // Filtrar las asignaturas que contienen el patrón
-        let l = this.#alumnos.filter(alumn => regex.test(alumn.nombre.toLowerCase()));
-
-        let alumnos = '';
-        l.forEach(element => {
-            alumnos += element.nombre + '\n';  // Asegúrate de usar '\n' para separar cada asignatura
-        });
-        return alumnos;  // Aquí deberías devolver un string con los nombres concatenados de las asignaturas
+        return this.#alumnos.filter(alumn => regex.test(alumn.nombre.toLowerCase()))
+            .map(element => element.nombre)
+            .join('\n');
     }
 
+    /**
+     * Añade una calificación a un estudiante en una asignatura específica.
+     * 
+     * @param {string} nombre - Nombre del estudiante.
+     * @param {string} asignatura - Nombre de la asignatura.
+     * @param {number} nota - Calificación a añadir (debe estar entre 0 y 10).
+     */
     aniadirCalifiacion(nombre, asignatura, nota) {
-
         this.#alumnos.forEach(alum => {
-            if (alum.nombre == nombre) {
+            if (alum.nombre === nombre) {
                 alum.aniadirCalificaciones(asignatura, parseInt(nota));
             }
         });
     }
 
+    /**
+     * Calcula el promedio exacto de todas las asignaturas de un estudiante específico.
+     * 
+     * @param {string} nombre - Nombre del estudiante.
+     * 
+     * @returns {number} Promedio exacto del estudiante.
+     * 
+     * @throws {Error} Si el estudiante no se encuentra en la lista.
+     */
     calcularPromedioAlumnoExacto(nombre) {
         const estudiante = this.#alumnos.find(alum => alum.nombre === nombre);
         if (estudiante) {
@@ -597,39 +725,54 @@ class listaEstudiantes {
         }
     }
 
+    /**
+     * Busca las asignaturas que contengan el patrón proporcionado en su nombre.
+     * 
+     * @param {string} patron - Patrón de búsqueda para las asignaturas.
+     * 
+     * @returns {string} Lista de asignaturas que coinciden con el patrón.
+     */
     buscarAsignaturasPorNombre(patron) {
         let cadena = 'Asignaturas : \n';
         this.#alumnos.forEach(estudiante => {
-            cadena += estudiante.buscarAsignaturaPorNombre(patron)+" \n";
+            cadena += estudiante.buscarAsignaturaPorNombre(patron) + " \n";
         });
-
         return cadena;
     }
 
-    calcularPromedioClase(){
-        let media  = 0;
-        let contador =0;
+    /**
+     * Calcula el promedio de la clase, basado en el promedio de cada estudiante.
+     * 
+     * @returns {string} Promedio de la clase.
+     */
+    calcularPromedioClase() {
+        let media = 0;
+        let contador = 0;
         this.#alumnos.forEach(alumn => {
-            if(!isNaN(alumn.calcularPromedio())){
-            media += alumn.calcularPromedio();
-            contador++;
-        }
+            if (!isNaN(alumn.calcularPromedio())) {
+                media += alumn.calcularPromedio();
+                contador++;
+            }
         });
-        return (media/contador).toFixed(2);
+        return (media / contador).toFixed(2);
     }
 
+    /**
+     * Muestra los datos de todos los estudiantes en la lista.
+     */
     toString() {
         this.#alumnos.forEach(alumn => {
-            console.log(alumn.toString())
+            console.log(alumn.toString());
         });
     }
 }
+
 
 // Creacion de una lista de Asignaturas y de una lista de estudiantes
 let listaDeAsignaturas = new listaAsignaturas();
 let lista = new listaEstudiantes();
 
-// Añado valores pora que vengan rellenos por defecto
+// Añado valores pora que vengan relleno      s por defecto
 function generarListados() {
     const miOtraDireccion = new direccion("Avenida Siempre Viva", 456, 2, 28090, "Madrid", "Madrid");
     const miDireccion = new direccion("Calle Falsa", 123, 1, 28080, "Madrid", "Madrid");

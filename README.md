@@ -117,7 +117,7 @@ Para mejorar la organización y mantenibilidad del código, he dividido las clas
 │── estudiante.js     # Clase 'Estudiante' con atributos y métodos específicos
 │── listaEstudiante.js # Gestión de múltiples estudiantes
 │── funciones.js      # Funciones auxiliares y lógicas adicionales
-│── main.js           # Archivo principal que importa y usa las clases
+│── proyecto1.js           # Archivo principal que importa y usa las clases
 ```
 
 ### 🔹 Clases

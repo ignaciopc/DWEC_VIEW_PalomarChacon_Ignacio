@@ -12,8 +12,6 @@ import {generarListados,interaccionUsuarioEstudiante,pruebas,listaDeAsignaturas,
 generarListados();
 
 
-
-
+// pruebas 
 pruebas();
-// Aqui manejo los errores enviandolos con un alert para que se vean mejor y para que el codigo no deje de funcionar
     interaccionUsuarioEstudiante();

@@ -1,4 +1,4 @@
-# 📘 Generación Automática de Documentación con JSDoc y Minami
+# 📚 Generación Automática de Documentación con JSDoc y Minami
 
 Este proyecto usa **JSDoc** con la plantilla **Minami** para generar documentación automáticamente. También se ha configurado un sistema de automatización con `nodemon`.
 
@@ -65,7 +65,7 @@ Este comando ejecutará:
 }
 ```
 
-La documentación se generará en la carpeta \`\` y se podrá abrir con cualquier navegador.
+La documentación se generará en la carpeta `out/` y se podrá abrir con cualquier navegador.
 
 ---
 
@@ -104,7 +104,36 @@ Esto hará que la documentación se regenere automáticamente al modificar los a
 
 ---
 
-## 📂 **5. Ver la documentación**
+## 📚 **5. Organización del Código en Múltiples Archivos**
+
+Para mejorar la organización y mantenibilidad del código, he dividido las clases y funciones en diferentes archivos JavaScript. Esto permite una mejor modularidad, reutilización del código y facilita la depuración.
+
+### 📅 Estructura de Archivos
+
+```
+/src
+│── nombre.js         # Clase base 'Nombre'
+│── asignatura.js     # Clase 'Asignatura' que extiende 'Nombre'
+│── estudiante.js     # Clase 'Estudiante' con atributos y métodos específicos
+│── listaEstudiante.js # Gestión de múltiples estudiantes
+│── funciones.js      # Funciones auxiliares y lógicas adicionales
+│── main.js           # Archivo principal que importa y usa las clases
+```
+
+### 🔹 Clases
+
+- **`nombre.js`**: Contiene la clase base `Nombre`, que define un atributo común.
+- **`asignatura.js`**: Contiene la clase `Asignatura`, que extiende `Nombre` y maneja calificaciones.
+- **`estudiante.js`**: Define la clase `Estudiante`, que gestiona los datos de un estudiante.
+- **`listaEstudiante.js`**: Administra una lista de estudiantes y permite agregar calificaciones.
+
+### 🔹 Funciones
+
+- **`funciones.js`**: Contiene funciones auxiliares, como la interacción con el usuario y cálculos adicionales.
+
+---
+
+## 📺 **6. Ver la documentación**
 
 Una vez generada la documentación, abre `out/index.html` en tu navegador:
 
@@ -120,5 +149,5 @@ xdg-open ./out/index.html  # Linux
 
 Ahora, cada vez que edites un archivo en `src/`, `nodemon` regenerará automáticamente la documentación, manteniéndola siempre actualizada sin necesidad de correr manualmente `npm run docs`.
 
-¡Listo! Tu documentación estará siempre al día. 🚀📖
+👍🏻 ¡Listo! Tu documentación estará siempre al día. 🚀📚
 

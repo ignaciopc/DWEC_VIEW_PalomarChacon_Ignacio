@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGAEA</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
     <div class="container">
         <h1>Sistema de Gestión Académica (SGAEA)</h1>
         <div class="menu">
             <button id="agregarEstudianteBtn">Agregar Estudiante</button>
+            <button id="eliminarEstudianteBtn">Eliminar Estudiante</button> <!-- Botón para mostrar el formulario de eliminación -->
         </div>
 
+        <!-- Formulario para agregar estudiantes -->
         <div id="formularioAgregarEstudiante" class="hidden">
             <h2>Agregar Nuevo Estudiante</h2>
             <form id="nuevoEstudianteForm">
@@ -46,8 +48,22 @@
             </form>
         </div>
 
+        <!-- Formulario para eliminar estudiantes -->
+        <div id="formularioEliminarEstudiante" class="hidden">
+            <h2>Eliminar Estudiante</h2>
+            <form id="eliminarEstudianteForm">
+                <label for="nombreEliminar">Nombre del Estudiante:</label>
+                <input type="text" id="nombreEliminar" name="nombreEliminar" required>
+
+                <button type="submit">Eliminar Estudiante</button>
+                <button type="button" id="cancelarEliminarEstudiante">Cancelar</button>
+            </form>
+        </div>
+
+        <!-- Contenedor para mostrar resultados -->
         <div id="resultadoContainer"></div>
     </div>
 
-    <script type="module" src="script.js" defer></script></body>
+    <script type="module" src="./src/script.js" defer></script>
+</body>
 </html>

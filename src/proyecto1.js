@@ -8,10 +8,7 @@ import listaEstudiantes from "./listaEstudiante.js";
 import {generarListados,interaccionUsuarioEstudiante,pruebas,listaDeAsignaturas,lista} from "./funciones.js";
 // Creacion de una lista de Asignaturas y de una lista de estudiantes
 
-
 generarListados();
-
 
 // pruebas 
 pruebas();
-    interaccionUsuarioEstudiante();

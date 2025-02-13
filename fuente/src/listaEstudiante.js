@@ -1,4 +1,5 @@
 import estudiante from "./estudiante.js";
+
 /**
  * ## Clase ListaEstudiantes
  * 
@@ -28,10 +29,10 @@ export default class listaEstudiantes {
     /**
      * ### Constructor
      * 
-     * Crea una nueva instancia de la clase `listaEstudiantes` inicializando el atributo `#alumnos` como un array vacío.
+     * Crea una nueva instancia de la clase `listaEstudiantes` inicializando el atributo `#alumnos` como un array vacío o cargando los datos desde `localStorage`.
      */
     constructor() {
-        this.#alumnos = [];
+        this.#alumnos = this.cargarEstudiantes() || [];
     }
 
     /** @returns {Array} Lista de alumnos. */
@@ -55,6 +56,7 @@ export default class listaEstudiantes {
         this.#alumnos.push(alumno);
         let hoy = new Date();
         alumno.fechaDeMatriculacion = hoy.toLocaleDateString("es-ES");
+        this.guardarEstudiantes(); // Guardar en localStorage después de agregar
     }
 
     /**
@@ -70,6 +72,7 @@ export default class listaEstudiantes {
             }
         });
         this.#alumnos = this.#alumnos.filter(element => element.nombre !== nombre);
+        this.guardarEstudiantes(); // Guardar en localStorage después de eliminar
     }
 
     /**
@@ -202,6 +205,23 @@ export default class listaEstudiantes {
             }
         });
         return (media / contador).toFixed(2);
+    }
+
+    /**
+     * Guarda la lista de estudiantes en `localStorage`.
+     */
+    guardarEstudiantes() {
+        localStorage.setItem('listaEstudiantes', JSON.stringify(this.#alumnos));
+    }
+
+    /**
+     * Carga la lista de estudiantes desde `localStorage`.
+     * 
+     * @returns {Array|null} Lista de estudiantes cargada o `null` si no hay datos.
+     */
+    cargarEstudiantes() {
+        const datos = localStorage.getItem('listaEstudiantes');
+        return datos ? JSON.parse(datos) : null;
     }
 
     /**

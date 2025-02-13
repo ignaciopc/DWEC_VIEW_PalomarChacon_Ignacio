@@ -1,7 +1,7 @@
-
 import nombre from "./nombre.js";
 import Direccion from "./direccion.js";
 import listaAsignaturas from "./listaAsignaturas.js";
+
 /**
  * ## Clase Estudiante
  * 
@@ -24,6 +24,8 @@ import listaAsignaturas from "./listaAsignaturas.js";
  * - **`aniadirCalificaciones`**: Añade una calificación a una asignatura específica.
  * - **`buscarAsignaturaPorNombre`**: Busca asignaturas cuyo nombre contenga un patrón dado.
  * - **`toString`**: Devuelve una representación en cadena con los datos principales del estudiante.
+ * - **`toJSON`**: Convierte el objeto a un formato serializable.
+ * - **`fromJSON`**: Reconstruye el objeto desde un formato plano.
  */
 export default class estudiante extends nombre {
     #id;
@@ -196,5 +198,41 @@ export default class estudiante extends nombre {
      */
     toString() {
         return `ID: ${this.#id}, Nombre: ${super.nombre}, Edad: ${this.#edad}, Dirección: ${this.#direccion.toString()}`;
+    }
+
+    /**
+     * Convierte el objeto a un formato serializable.
+     * 
+     * @returns {Object} Objeto plano con los datos del estudiante.
+     */
+    toJSON() {
+        return {
+            nombre: super.nombre,
+            edad: this.#edad,
+            direccion: this.#direccion.toJSON(), // Asegúrate de que Direccion también tenga toJSON()
+            id: this.#id,
+            fechaDeMatriculacion: this.#fechaDeMatriculacion,
+            fechaDeDesmatriculacion: this.#fechaDeDesmatriculacion,
+            listaModulos: this.#listaModulos.toJSON(), // Asegúrate de que listaAsignaturas también tenga toJSON()
+        };
+    }
+
+    /**
+     * Reconstruye el objeto desde un formato plano.
+     * 
+     * @param {Object} datos - Objeto plano con los datos del estudiante.
+     * @returns {estudiante} Instancia de la clase `estudiante`.
+     */
+    static fromJSON(datos) {
+        const nuevoEstudiante = new estudiante(
+            datos.nombre,
+            datos.edad,
+            Direccion.fromJSON(datos.direccion) // Asegúrate de que Direccion tenga fromJSON()
+        );
+        nuevoEstudiante.#id = datos.id;
+        nuevoEstudiante.#fechaDeMatriculacion = datos.fechaDeMatriculacion;
+        nuevoEstudiante.#fechaDeDesmatriculacion = datos.fechaDeDesmatriculacion;
+        nuevoEstudiante.#listaModulos = listaAsignaturas.fromJSON(datos.listaModulos); // Asegúrate de que listaAsignaturas tenga fromJSON()
+        return nuevoEstudiante;
     }
 }

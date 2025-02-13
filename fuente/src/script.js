@@ -6,9 +6,11 @@ import listaAsignaturas from "./listaAsignaturas.js";
 import listaEstudiantes from "./listaEstudiante.js";
 
 let listaDeAsignaturas = new listaAsignaturas();
-let lista = new listaEstudiantes();
+let lista = new listaEstudiantes(); // La lista se carga automáticamente desde localStorage
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log(lista.toString());
+
     const agregarEstudianteBtn = document.getElementById('agregarEstudianteBtn');
     const eliminarEstudianteBtn = document.getElementById('eliminarEstudianteBtn');
     const formularioAgregarEstudiante = document.getElementById('formularioAgregarEstudiante');
@@ -19,16 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelarEliminarEstudianteBtn = document.getElementById('cancelarEliminarEstudiante');
     const resultadoContainer = document.getElementById('resultadoContainer');
 
+    // Mostrar estudiantes al cargar la página
+    mostrarEstudiantes();
+
     // Mostrar formulario de agregar estudiante
     agregarEstudianteBtn.addEventListener('click', () => {
         formularioAgregarEstudiante.classList.remove('hidden');
-        formularioEliminarEstudiante.classList.add('hidden'); // Ocultar el formulario de eliminación
+        formularioEliminarEstudiante.classList.add('hidden');
     });
 
     // Mostrar formulario de eliminar estudiante
     eliminarEstudianteBtn.addEventListener('click', () => {
         formularioEliminarEstudiante.classList.remove('hidden');
-        formularioAgregarEstudiante.classList.add('hidden'); // Ocultar el formulario de agregar
+        formularioAgregarEstudiante.classList.add('hidden');
     });
 
     // Ocultar formulario de agregar estudiante
@@ -64,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Mostrar mensaje de éxito
         resultadoContainer.innerHTML = `<p>Estudiante ${nombre} agregado correctamente.</p>`;
-        console.log(lista.toString());
+        mostrarEstudiantes(); // Actualizar la lista
 
         // Ocultar el formulario y limpiarlo
         formularioAgregarEstudiante.classList.add('hidden');
@@ -78,18 +83,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Obtener el nombre del estudiante a eliminar
         const nombreEliminar = document.getElementById('nombreEliminar').value;
 
-        console.log('fff'+lista.toString());
-        
         // Eliminar el estudiante
-         lista.eliminarAlumnos(nombreEliminar);
-         console.log('fdfd');
-         console.log('fdfdf');
+        lista.eliminarAlumnos(nombreEliminar);
 
-        // Mostrar mensaje de éxito o error
-        console.log('fff'+lista.toString());
+        // Mostrar mensaje de éxito
+        resultadoContainer.innerHTML = `<p>Estudiante ${nombreEliminar} eliminado correctamente.</p>`;
+        mostrarEstudiantes(); // Actualizar la lista
 
         // Ocultar el formulario y limpiarlo
         formularioEliminarEstudiante.classList.add('hidden');
         eliminarEstudianteForm.reset();
     });
+
+    // Función para mostrar la lista de estudiantes
+    function mostrarEstudiantes() {
+        const listaEstudiantesContainer = document.getElementById('listaEstudiantesContainer');
+        listaEstudiantesContainer.innerHTML = '<h2>Lista de Estudiantes</h2>';
+        
+        lista.alumnos.forEach(est => {
+            listaEstudiantesContainer.innerHTML += `<p>${est.nombre} (${est.edad} años)</p>`;
+        });
+    }
 });

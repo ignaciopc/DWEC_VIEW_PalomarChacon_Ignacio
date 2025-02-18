@@ -12,8 +12,17 @@
         <div class="menu">
             <button id="agregarEstudianteBtn">Agregar Estudiante</button>
             <button id="eliminarEstudianteBtn">Eliminar Estudiante</button>
+            <button id="matricularEstudianteBtn">Matricular Estudiante</button>
+            <button id="desMatricularEstudianteBtn">Desmatricular Estudiante</button>
+            <button id="aniadirCalificacionBtn">Añadir Califiacion</button>
+            <button id="calcularPromedioBtn">Calcular Promedio</button>
+            <button id="buscarAsignaturasbtn">Buscar Asignaturas</button>
+            <button id="mostrarEstudiantesbtn">Mostrar Estudiantes</button>
+            <button id="buscarEstudiantebtn">Buscar Estudiantes</button>
+            <button id="promedioGeneral">Promedio General</button>
+            <button id="guardarEstudiantesBtn">Guardar Estudiantes</button>
         </div>
-
+ 
         <!-- Formulario para agregar estudiantes -->
         <div id="formularioAgregarEstudiante" class="hidden">
             <h2>Agregar Nuevo Estudiante</h2>
@@ -60,13 +69,101 @@
             </form>
         </div>
 
+        <!-- Formulario para matricular estudiantes -->
+<!-- Formulario para matricular estudiantes -->
+<div id="formularioMatricularEstudiante" class="hidden">
+    <h2>Matricular Estudiante en Asignatura</h2>
+    <form id="matricularEstudianteForm">
+        <label for="estudianteid">ID del Estudiante:</label>
+        <input type="number" id="estudianteid" name="estudianteid" required>
+        <label for="asignaturaMatricular">Nombre de la Asignatura:</label>
+        <input type="text" id="asignaturaMatricular" name="asignaturaMatricular" required>
+        <label for="Calificaciones">Calificacion</label>
+        <input type="number" id="Calificaciones" name="Calificaciones" required>
+        <div id="calificacionesContainer"></div>
+        <button type="submit">Matricular Estudiante</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+    
+            <!-- Formulario para desmatricular estudiantes -->
+<div id="formularioDesMatricularEstudiante" class="hidden">
+    <h2>Desmatricular   Estudiante en Asignatura</h2>
+    <form id="desMatricularEstudianteForm">
+        <label for="estudianteid">ID del Estudiante:</label>
+        <input type="number" id="estudianteid" name="estudianteid" required>
+        <label for="asignaturaMatricular">Nombre de la Asignatura:</label>
+        <input type="text" id="asignaturaMatricular" name="asignaturaMatricular" required>
+        <button type="submit">Desmatricular Estudiante</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+
+<div id="formularioaniadirCalifiacion" class="hidden">
+    <h2>Añadir Califiacion</h2>
+    <form id="aniadirCalificacionform">
+        <label for="estudianteid">Nombnre del Estudiante:</label>
+        <input type="text" id="nombreEstudiante" name="nombreEstudiante" required>
+        <label for="asignatura">Nombre de la Asignatura:</label>
+        <input type="text" id="asignatura" name="asignatura" required>
+        <label for="califiaciones">Calificacion</label>
+        <input type="number" id="califiaciones" name="califiaciones" required>
+        <button type="submit">Aniadir Califiacion</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+
+<div id="formulariocalcularPromedio" class="hidden">
+    <h2>Calcular Promedio</h2>
+    <form id="calcularPromedioform">
+        <label for="nombreEstudiantee">Nombre del Estudiante:</label>
+        <input type="text" id="nombreEstudiantee" name="nombreEstudiantee" required>
+
+        <button type="submit">Calcular Promedio</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+
+<div id="formulariobuscarAsignaturas" class="hidden">
+    <h2>Buscar Asignatura</h2>
+    <form id="buscarAsignaturasform">
+        <label for="asignaturasNombre">Asignatura:</label>
+        <input type="text" id="asignaturasNombre" name="asignaturasNombre" required>
+
+        <button type="submit">Buscar Asignatura</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+
+<div id="formularioMostrarEstudiantes" class="hidden">
+    <h2>Buscar Asignatura</h2>
+    <form id="mostrarEstudiantesform">
+        <label for="estudiantesMostrar">Asignatura:</label>
+        <input type="text" id="estudiantesMostrar" name="estudiantesMostrar" required>
+
+        <button type="submit">Buscar Asignatura</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
+
+
+<div id="formularioBuscarEstudiante" class="hidden">
+    <h2>Buscar Asignatura</h2>
+    <form id="buscarEstudianteform">
+        <label for="estudianteBuscar">Asignatura:</label>
+        <input type="text" id="estudianteBuscar" name="estudianteBuscar" required>
+
+        <button type="submit">Buscar Asignatura</button>
+        <button type="button" id="cancelarMatricularEstudiante">Cancelar</button>
+    </form>
+</div>
         <!-- Contenedor para mostrar resultados -->
         <div id="resultadoContainer"></div>
 
         <!-- Contenedor para la lista de estudiantes -->
         <div id="listaEstudiantesContainer"></div>
     </div>
-
+    <div id="resultadoBusqueda" class="hidden"></div>
     <script type="module" src="./src/script.js" defer></script>
 </body>
 </html>

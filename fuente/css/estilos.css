@@ -77,3 +77,15 @@ h1 {
 #formularioAgregarEstudiante button:hover {
     background-color: #0056b3;
 }
+
+#resultadoBusqueda {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: none; /* Inicialmente oculto */
+}
+
+#resultadoBusqueda.visible {
+    display: block; /* Se muestra cuando se añade la clase 'visible' */
+}

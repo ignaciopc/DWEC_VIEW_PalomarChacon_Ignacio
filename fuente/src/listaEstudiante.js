@@ -4,24 +4,6 @@ import estudiante from "./estudiante.js";
  * ## Clase ListaEstudiantes
  * 
  * Esta clase gestiona una lista de estudiantes (instancias de la clase `estudiante`).
- * Permite agregar, eliminar y matricular o desmatricular estudiantes en asignaturas, así como generar reportes y realizar otras operaciones relacionadas con los estudiantes.
- * 
- * ### Atributos:
- * - **`#alumnos`**: Un array que contiene las instancias de estudiantes (`estudiante`).
- * 
- * ### Métodos:
- * - **Getters y Setters**: Para gestionar el atributo `#alumnos`.
- * - **`agregarAlumnos`**: Añade un alumno a la lista, asegurándose de que no se repita.
- * - **`eliminarAlumnos`**: Elimina un alumno de la lista por nombre y registra la fecha de desmatriculación.
- * - **`desmatricularaAsignatura`**: Desmatricula a un estudiante de una asignatura específica.
- * - **`matricularAsignatura`**: Matricula a un estudiante en una asignatura específica.
- * - **`reporte`**: Genera un reporte de los estudiantes, mostrando su nombre, ID y las asignaturas con sus notas y promedio.
- * - **`buscarEstudiantePorNombre`**: Busca estudiantes que coincidan con el patrón de nombre proporcionado.
- * - **`aniadirCalifiacion`**: Añade una calificación a un estudiante en una asignatura específica.
- * - **`calcularPromedioAlumnoExacto`**: Calcula el promedio exacto de un estudiante en todas sus asignaturas.
- * - **`buscarAsignaturasPorNombre`**: Busca asignaturas que contengan el patrón de nombre proporcionado.
- * - **`calcularPromedioClase`**: Calcula el promedio de la clase (promedio de todos los estudiantes).
- * - **`toString`**: Muestra los datos de todos los estudiantes en la lista.
  */
 export default class listaEstudiantes {
     #alumnos;
@@ -32,7 +14,9 @@ export default class listaEstudiantes {
      * Crea una nueva instancia de la clase `listaEstudiantes` inicializando el atributo `#alumnos` como un array vacío o cargando los datos desde `localStorage`.
      */
     constructor() {
-        this.#alumnos = this.cargarEstudiantes() || [];
+        this.#alumnos = [];
+        this.cargarEstudiantes(); // Cargar datos al inicializar
+
     }
 
     /** @returns {Array} Lista de alumnos. */
@@ -48,15 +32,12 @@ export default class listaEstudiantes {
      * @throws {Error} Si el alumno ya está en la lista.
      */
     agregarAlumnos(alumno) {
-        this.#alumnos.forEach(alumn => {
-            if (alumn.id === alumno.id) {
-                throw new Error("El alumno que intentas meter ya está en la lista");
-            }
-        });
+        if (this.#alumnos.some(alumn => alumn.id === alumno.id)) {
+            throw new Error("El alumno que intentas meter ya está en la lista");
+        }
         this.#alumnos.push(alumno);
         let hoy = new Date();
         alumno.fechaDeMatriculacion = hoy.toLocaleDateString("es-ES");
-        this.guardarEstudiantes(); // Guardar en localStorage después de agregar
     }
 
     /**
@@ -134,9 +115,7 @@ export default class listaEstudiantes {
         if (typeof patron !== "string") {
             throw new Error("El patrón debe ser una cadena de texto");
         }
-
         const regex = new RegExp(patron.toLowerCase(), "i");
-
         return this.#alumnos.filter(alumn => regex.test(alumn.nombre.toLowerCase()))
             .map(element => element.nombre)
             .join('\n');
@@ -210,26 +189,33 @@ export default class listaEstudiantes {
     /**
      * Guarda la lista de estudiantes en `localStorage`.
      */
-    guardarEstudiantes() {
-        localStorage.setItem('listaEstudiantes', JSON.stringify(this.#alumnos));
-    }
 
     /**
      * Carga la lista de estudiantes desde `localStorage`.
      * 
      * @returns {Array|null} Lista de estudiantes cargada o `null` si no hay datos.
-     */
-    cargarEstudiantes() {
-        const datos = localStorage.getItem('listaEstudiantes');
-        return datos ? JSON.parse(datos) : null;
-    }
+  
 
     /**
      * Muestra los datos de todos los estudiantes en la lista.
      */
     toString() {
-        this.#alumnos.forEach(alumn => {
-            console.log(alumn.toString());
-        });
+        return this.#alumnos.map(alumn => alumn.toString()).join("\n");
+    }
+
+    guardarEstudiantes() {
+        const estudiantesJSON = JSON.stringify(this.#alumnos.map(estudiante => estudiante.toJSON()));
+        localStorage.setItem('estudiantes', estudiantesJSON);
+    }
+
+    /**
+     * Carga la lista de estudiantes desde `localStorage`.
+     */
+    cargarEstudiantes() {
+        const estudiantesJSON = localStorage.getItem('estudiantes');
+        if (estudiantesJSON) {
+            const estudiantesData = JSON.parse(estudiantesJSON);
+            this.#alumnos = estudiantesData.map(estudianteData => estudiante.fromJSON(estudianteData));
+        }
     }
 }

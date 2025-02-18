@@ -91,4 +91,22 @@ export default class listaAsignaturas {
 
         return cadena;
     }
+
+    toJSON() {
+        return {
+            lista: this.#lista.map(asignatura => asignatura.toJSON()), // Llama a toJSON de cada asignatura
+        };
+    }
+
+    /**
+     * Reconstruye una instancia de `listaAsignaturas` desde un objeto JSON.
+     * 
+     * @param {Object} json - Objeto JSON con los datos de la lista de asignaturas.
+     * @returns {listaAsignaturas} Instancia de `listaAsignaturas`.
+     */
+    static fromJSON(json) {
+        const lista = new listaAsignaturas();
+        lista.#lista = json.lista.map(asignaturaData => Asignatura.fromJSON(asignaturaData));
+        return lista;
+    }
 }

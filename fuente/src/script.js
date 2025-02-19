@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const eliminarEstudianteForm = document.getElementById('eliminarEstudianteForm');
     const cancelarForm = document.getElementById('cancelarForm');
     const resultadoContainer = document.getElementById('resultadoContainer');
-    const guardarEstudiantesBtn = document.getElementById('guardarEstudiantesBtn');
     const formularioDesMatricularEstudiante = document.getElementById('formularioDesMatricularEstudiante');
     const formularioAniadirCalifiacion = document.getElementById('formularioaniadirCalifiacion');
     const formularioCalcularPromedio = document.getElementById('formulariocalcularPromedio');
@@ -341,13 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Cancelar el formulario de matrícula
-    document.getElementById('cancelarMatricularEstudiante')?.addEventListener('click', () => {
-        const formularioMatricularEstudiante = document.getElementById('formularioMatricularEstudiante');
-        if (formularioMatricularEstudiante) {
-            formularioMatricularEstudiante.classList.add('hidden');
-        }
-    });
+
     // Mostrar el formulario de añadir calificación cuando se hace clic en el botón
     document.getElementById('aniadirCalificacionBtn')?.addEventListener('click', () => {
         const formularioAniadirCalificacion = document.getElementById('formularioaniadirCalifiacion');
@@ -361,14 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cancelar el formulario de añadir calificación
-    document.getElementById('cancelarMatricularEstudiante')?.addEventListener('click', () => {
-        const formularioAniadirCalificacion = document.getElementById('formularioaniadirCalifiacion');
-        if (formularioAniadirCalificacion) {
-            formularioAniadirCalificacion.classList.add('hidden'); // Ocultar el formulario
-            document.getElementById('aniadirCalificacionform').reset(); // Limpiar el formulario
-        }
-    });
+
 
     // Manejar el envío del formulario de añadir calificación
     document.getElementById('aniadirCalificacionform')?.addEventListener('submit', (e) => {
@@ -436,27 +422,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
-    // Mostrar el formulario de añadir calificación cuando se hace clic en el botón
-    document.getElementById('aniadirCalificacionBtn')?.addEventListener('click', () => {
-        const formularioAniadirCalificacion = document.getElementById('formularioaniadirCalifiacion');
-        if (formularioAniadirCalificacion) {
-            formularioAniadirCalificacion.classList.remove('hidden'); // Mostrar el formulario
-            // Ocultar otros formularios
-            document.getElementById('formularioAgregarEstudiante')?.classList.add('hidden');
-            document.getElementById('formularioEliminarEstudiante')?.classList.add('hidden');
-            document.getElementById('formularioMatricularEstudiante')?.classList.add('hidden');
-            document.getElementById('formularioDesMatricularEstudiante')?.classList.add('hidden');
-        }
-    });
 
-    // Cancelar el formulario de añadir calificación
-    document.getElementById('cancelarMatricularEstudiante')?.addEventListener('click', () => {
-        const formularioAniadirCalificacion = document.getElementById('formularioaniadirCalifiacion');
-        if (formularioAniadirCalificacion) {
-            formularioAniadirCalificacion.classList.add('hidden'); // Ocultar el formulario
-            document.getElementById('aniadirCalificacionform').reset(); // Limpiar el formulario
-        }
-    });
+
 
 
     // Mostrar el formulario de calcular promedio cuando se hace clic en el botón
@@ -504,9 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cancelar el formulario de calcular promedio
-
-    //
 
     // Mostrar el formulario de buscar asignaturas cuando se hace clic en el botón
     document.getElementById('buscarAsignaturasbtn')?.addEventListener('click', () => {
@@ -519,15 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('formularioMatricularEstudiante')?.classList.add('hidden');
             document.getElementById('formularioDesMatricularEstudiante')?.classList.add('hidden');
             document.getElementById('formularioaniadirCalifiacion')?.classList.add('hidden');
-        }
-    });
-
-    // Cancelar el formulario de buscar asignaturas
-    document.getElementById('cancelarMatricularEstudiante')?.addEventListener('click', () => {
-        const formularioBuscarAsignaturas = document.getElementById('formulariobuscarAsignaturas');
-        if (formularioBuscarAsignaturas) {
-            formularioBuscarAsignaturas.classList.add('hidden'); // Ocultar el formulario
-            document.getElementById('buscarAsignaturasform').reset(); // Limpiar el formulario
         }
     });
 
@@ -588,14 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cancelar el formulario de buscar asignatura
-    document.getElementById('cancelarMatricularEstudiante')?.addEventListener('click', () => {
-        const formularioMostrarEstudiantes = document.getElementById('formularioMostrarEstudiantes');
-        if (formularioMostrarEstudiantes) {
-            formularioMostrarEstudiantes.classList.add('hidden'); // Ocultar el formulario
-            document.getElementById('mostrarEstudiantesform').reset(); // Limpiar el formulario
-        }
-    });
 
 
 
@@ -748,7 +695,5 @@ document.getElementById('buscarEstudianteform')?.addEventListener('submit', (e) 
         lista.guardarEstudiantes(); // Guardar la lista en localStorage
         alert("Estudiantes guardados en localStorage.");
     });
-
-    //Validar formrulario 
 
 });

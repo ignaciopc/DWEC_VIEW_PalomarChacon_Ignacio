@@ -8,7 +8,6 @@ import listaEstudiantes from "./listaEstudiante.js";
 let lista = new listaEstudiantes(); // La lista se carga automáticamente desde localStorage
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(lista.toString());
 
     const agregarEstudianteBtn = document.getElementById('agregarEstudianteBtn');
     const eliminarEstudianteBtn = document.getElementById('eliminarEstudianteBtn');
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // Validar Código Postal
         if (!/^\d{5}$/.test(codigoPostal)) {
-            console.log('hola q tal');
             mostrarError('error-codigoPostal', 'El código postal debe tener exactamente 5 números.');
             isValid = false;
         }
@@ -271,10 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValid) {
             // Crear la asignatura y matricular al estudiante
             const asignatura = new Asignatura(asignaturaNombre, calificacion);
-            console.log(asignatura.toString());
             lista.matricularAsignatura(estudianteId, asignatura);
-            console.log(lista.reporte());
-    
+     
             // Mostrar mensaje de éxito
             alert(`El estudiante ${estudianteId} ha sido matriculado en ${asignaturaNombre}.`);
     

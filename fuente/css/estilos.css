@@ -89,3 +89,20 @@ h1 {
 #resultadoBusqueda.visible {
     display: block; /* Se muestra cuando se añade la clase 'visible' */
 }
+
+/* Estilo para campos válidos */
+.valid {
+    border-color: green;
+}
+
+/* Estilo para campos inválidos */
+.invalid {
+    border-color: red;
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

@@ -91,4 +91,27 @@ export default class Asignatura extends nombre {
         });
         return cadena.trim(); // Elimina espacios extra al final.
     }
+
+     /**
+     * Devuelve una representación serializable del objeto Asignatura.
+     *
+     * @returns {Object} Un objeto con las propiedades relevantes.
+     */
+     toJSON() {
+        return {
+            nombre: this.nombre,
+            calificaciones: [...this.#calificaciones] // Copia del array de calificaciones
+        };
+    }
+
+    /**
+     * Reconstruye una instancia de `Asignatura` desde un objeto JSON.
+     *
+     * @param {Object} json - Objeto JSON con los datos de la asignatura.
+     * @returns {Asignatura} Instancia de `Asignatura`.
+     */
+    static fromJSON(json) {
+        const asignaturaInstance = new Asignatura(json.nombre, ...json.calificaciones);
+        return asignaturaInstance;
+    }
 }

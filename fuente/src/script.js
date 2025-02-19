@@ -420,7 +420,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// Mostrar el formulario de calcular promedio cuando se hace clic en el botón
+document.getElementById('calcularPromedioBtn')?.addEventListener('click', () => {
+    const formularioCalcularPromedio = document.getElementById('formulariocalcularPromedio');
+    if (formularioCalcularPromedio) {
+        formularioCalcularPromedio.classList.remove('hidden'); // Mostrar el formulario
 
+        // Ocultar otros formularios
+        document.getElementById('formularioAgregarEstudiante')?.classList.add('hidden');
+        document.getElementById('formularioEliminarEstudiante')?.classList.add('hidden');
+        document.getElementById('formularioMatricularEstudiante')?.classList.add('hidden');
+        document.getElementById('formularioDesMatricularEstudiante')?.classList.add('hidden');
+        document.getElementById('formularioaniadirCalifiacion')?.classList.add('hidden'); // Ocultar formulario de añadir calificación
+        document.getElementById('formulariobuscarAsignaturas')?.classList.add('hidden'); // Ocultar formulario de buscar asignaturas
+        document.getElementById('formularioMostrarEstudiantes')?.classList.add('hidden'); // Ocultar formulario de mostrar estudiantes
+        document.getElementById('formularioBuscarEstudiante')?.classList.add('hidden'); // Ocultar formulario de buscar estudiantes
+    }
+});
 
     // Mostrar el formulario de calcular promedio cuando se hace clic en el botón
     document.getElementById('calcularPromedioform')?.addEventListener('submit', (e) => {
@@ -443,14 +459,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Si todas las validaciones pasan, proceder a calcular el promedio
         if (isValid) {
             try {
-                // Buscar al estudiante por nombre
-                const estudiante = lista.alumnos.find(est => est.nombre === nombreEstudiante);
-                if (!estudiante) {
-                    throw new Error(`No se encontró al estudiante con nombre: ${nombreEstudiante}`);
-                }
-    
+                
                 // Calcular el promedio del estudiante
-                const promedio = calcularPromedio(estudiante);
+                const promedio = lista.calcularPromedioAlumnoExacto(nombreEstudiante);
     
                 // Mostrar el resultado
                 alert(`El promedio del estudiante ${nombreEstudiante} es: ${promedio.toFixed(2)}`);

@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 // Agregar el estudiante a la lista
                 lista.agregarAlumnos(nuevoEstudiante);
-    
+                lista.guardarEstudiantes(); // Guardar la lista en localStorage
+
                 // Mostrar mensaje de éxito
                 resultadoContainer.innerHTML = `<p>Estudiante ${nombre} agregado correctamente.</p>`;
     
@@ -177,7 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValid) {
             // Eliminar el estudiante
             lista.eliminarAlumnos(nombreEliminar);
-    
+            lista.guardarEstudiantes(); // Guardar la lista en localStorage
+
             // Mostrar mensaje de éxito
             resultadoContainer.innerHTML = `<p>Estudiante ${nombreEliminar} eliminado correctamente.</p>`;
     
@@ -270,7 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Crear la asignatura y matricular al estudiante
             const asignatura = new Asignatura(asignaturaNombre, calificacion);
             lista.matricularAsignatura(estudianteId, asignatura);
-     
+            lista.guardarEstudiantes(); // Guardar la lista en localStorage
+
             // Mostrar mensaje de éxito
             alert(`El estudiante ${estudianteId} ha sido matriculado en ${asignaturaNombre}.`);
     
@@ -321,7 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValid) {
             // Desmatricular al estudiante de la asignatura
             lista.desmatricularaAsignatura(estudianteId, asignaturaNombre);
-    
+            lista.guardarEstudiantes(); // Guardar la lista en localStorage
+
             // Mostrar mensaje de éxito
             alert(`El estudiante ${estudianteId} ha sido desmatriculado de ${asignaturaNombre}.`);
     
@@ -401,7 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
                 // Añadir la calificación a la asignatura
                 asignatura.aniadirCalifiaciones(calificacion);
-    
+                lista.guardarEstudiantes(); // Guardar la lista en localStorage
+
                 // Mostrar mensaje de éxito
                 alert(`Calificación ${calificacion} añadida a la asignatura ${nombreAsignatura} para el estudiante ${nombreEstudiante}.`);
     
@@ -698,9 +703,5 @@ document.getElementById('buscarEstudianteform')?.addEventListener('submit', (e) 
         }
     });
 
-    guardarEstudiantesBtn.addEventListener('click', () => {
-        lista.guardarEstudiantes(); // Guardar la lista en localStorage
-        alert("Estudiantes guardados en localStorage.");
-    });
 
 });

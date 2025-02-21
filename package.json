@@ -9,7 +9,7 @@
     "todo": "npm-run-all limpia documenta",
     "docs": "npx jsdoc -c jsdoc.json",
     "docs:watch": "nodemon --ext js --exec \"npm run docs\"",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --mode production",
     "start": "webpack serve --open"
   },
   "author": "Ignacio Palomar Chacon",
@@ -21,11 +21,15 @@
     "taffydb": "^2.7.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.8",
-    "@babel/preset-env": "^7.26.8",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
     "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
     "minami": "^1.2.3",
     "nodemon": "^3.1.9",
+    "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   }

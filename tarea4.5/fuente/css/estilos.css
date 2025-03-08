@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#formularioAgregarEstudiante {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#formularioAgregarEstudiante label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formularioAgregarEstudiante input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#formularioAgregarEstudiante button {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#formularioAgregarEstudiante button:hover {
+    background-color: #0056b3;
+}
+
+#resultadoBusqueda {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: none; /* Inicialmente oculto */
+}
+
+#resultadoBusqueda.visible {
+    display: block; /* Se muestra cuando se añade la clase 'visible' */
+}
+
+/* Estilo para campos válidos */
+.valid {
+    border-color: green;
+}
+
+/* Estilo para campos inválidos */
+.invalid {
+    border-color: red;
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

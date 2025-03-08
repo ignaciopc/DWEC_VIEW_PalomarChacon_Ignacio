@@ -1,0 +1,21 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.card {
+    @apply overflow-hidden transition-transform transform bg-white rounded-lg shadow-md hover:scale-105;
+}
+
+.card img {
+    @apply object-cover w-full h-48;
+}
+
+.card h2 {
+    @apply mt-2 text-xl font-bold;
+}
+
+.card p {
+    @apply mt-2 text-gray-700;
+}

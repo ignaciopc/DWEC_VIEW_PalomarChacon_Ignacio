@@ -1,0 +1,14 @@
+{
+    "source": {
+      "include": ["src"],
+      "exclude": ["node_modules"],
+      "includePattern": ".*\\.js$",
+      "excludePattern": ".*\\.test\\.js$"
+    },
+    "opts": {
+      "destination": "./out",
+      "template": "node_modules/minami",
+      "recurse": true
+    },
+    "plugins": ["plugins/markdown"]
+  }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../estilos/salida.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <title>jQuery Page</title>
+</head>
+
+<body class="text-gray-900 bg-gray-100">
+  <header class="bg-white shadow-md">
+    <nav class="px-4 py-3 mx-auto max-w-7xl">
+      <section class="flex items-center justify-between">
+        <section class="flex items-center space-x-4">
+          <i class="text-4xl fa-solid fa-dragon"></i>
+          <article class="text-xl font-semibold text-gray-800">Galería de Imágenes</span>
+        </section>
+        <section class="flex space-x-6">
+          <a href="../index.html" class="text-gray-600 hover:text-blue-600">Script con JavaScript</a>
+          <a href="./jquery.html" class="text-gray-600 hover:text-blue-600">Script con Jquery</a>
+        </section>
+      </section>
+    </nav>
+  </header>
+
+
+  <main class="container p-6 mx-auto">
+    <h1 class="mb-6 text-3xl font-semibold text-center">Galería de Imágenes con jQuery</h1>
+
+    <section id="cards-container"
+      class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    </section>
+
+    <section class="mt-8 text-center">
+      <button id="load-more"
+        class="px-6 py-3 text-xl text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none">Cargar más
+        fotos</button>
+    </section>
+  </main>
+
+  <footer class="py-12 text-black bg-white shadow-md">
+    <section class="container flex flex-col items-center px-6 mx-auto">
+      <section class="mb-8">
+        <h2 class="mb-3 text-2xl font-semibold">Síguenos en nuestras redes sociales</h2>
+        <section class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </section>
+      </section>
+      
+      <section class="flex mb-6 space-x-12 text-sm">
+        <a href="#" class="hover:text-blue-500">Acerca de</a>
+        <a href="#" class="hover:text-blue-500">Política de Privacidad</a>
+        <a href="#" class="hover:text-blue-500">Licencia</a>
+        <a href="#" class="hover:text-blue-500">Contacto</a>
+      </section>
+      <p class="text-sm text-center text-gray-400">&copy; 2023 Todos los derechos reservados.</p>
+    </section>
+  </footer>
+
+
+  <script type="module" src="../js/jquery.js"></script>
+
+</body>
+
+</html>

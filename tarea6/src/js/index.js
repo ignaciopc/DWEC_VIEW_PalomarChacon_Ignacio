@@ -56,9 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error al cargar imágenes:', error);
-        } finally {
-            container.removeChild(loading);
-        }
+        } 
     }
 
     // Carga inicial

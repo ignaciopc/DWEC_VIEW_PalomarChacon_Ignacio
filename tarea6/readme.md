@@ -47,7 +47,8 @@ npm install
 ### 2️ Iniciar el Servidor de Desarrollo
 
 ```sh
-npm run dev
+Primero : cd tarea6 
+Segundo : npm run dev
 ```
 
 Esto te llevará directamente al navegador donde podrás ver la página en tiempo real. 
